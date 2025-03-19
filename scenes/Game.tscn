@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://rxqblwqpw20"]
+
+[ext_resource type="PackedScene" uid="uid://bks8t38kovn0y" path="res://scenes/player.tscn" id="1_ibkli"]
+[ext_resource type="Texture2D" uid="uid://ddbcf31ywf523" path="res://assets/background.png" id="1_qbsmt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpr0p"]
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_qbsmt"]
+
+[node name="Game" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_cpr0p")
+disabled = true
+
+[node name="Background" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_qbsmt")
+
+[node name="Player" parent="." instance=ExtResource("1_ibkli")]
+position = Vector2(-626, 91)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+modification_stack = SubResource("SkeletonModificationStack2D_qbsmt")

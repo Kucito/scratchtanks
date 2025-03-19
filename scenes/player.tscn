@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bks8t38kovn0y"]
+
+[ext_resource type="Script" uid="uid://bs75ga36haalo" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bome2j013iu6m" path="res://assets/body.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dodsq26ds3xhw" path="res://assets/top.png" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://bfsqiwu3n6mln" path="res://scripts/player_gun.gd" id="4_dqkch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+
+[node name="Player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_dqkch")
+
+[node name="Body" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_qhqgy")
+flip_h = true
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position_smoothing_enabled = true
+
+[node name="Top" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("3_qhqgy")
+offset = Vector2(60, 0)
+flip_h = true
+script = ExtResource("4_dqkch")
