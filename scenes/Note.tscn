@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dahveydyxk2u2"]
+
+[ext_resource type="Texture2D" uid="uid://dhes123703d3e" path="res://assets/sprites/notebook/cover.png" id="1_tqwf5"]
+[ext_resource type="Texture2D" uid="uid://dn22thucpevqv" path="res://assets/sprites/notebook/note.png" id="2_b5sp0"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tqwf5"]
+a = Vector2(-513, 350)
+b = Vector2(-512, -354)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_b5sp0"]
+a = Vector2(766, -37)
+b = Vector2(-258, -39)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lxu8l"]
+a = Vector2(-1, -5)
+b = Vector2(-1, 698)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vrulo"]
+a = Vector2(-516, 348)
+b = Vector2(507, 349)
+
+[node name="Note" type="Node2D"]
+
+[node name="Cover" type="Sprite2D" parent="."]
+texture = ExtResource("1_tqwf5")
+region_rect = Rect2(0, 0, 1000, 612)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Note" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-1.49996, -1.49997)
+texture = ExtResource("2_b5sp0")
+region_rect = Rect2(0, 0, 2032, 1313)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_tqwf5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-257, -316)
+shape = SubResource("SegmentShape2D_b5sp0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(510, -349)
+shape = SubResource("SegmentShape2D_lxu8l")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_vrulo")
