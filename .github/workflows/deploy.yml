@@ -2,7 +2,13 @@ name: Godot Export and Deploy
 
 on:
   push:
-    branches: main
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -15,16 +21,27 @@ jobs:
       - name: Setup Godot
         uses: chickensoft-games/setup-godot@v2.1.1
         with:
-          version: '4.1.0'  # Specify your Godot version
+          version: "4.4.0"
           export_templates: true
 
-      - name: Export Project
+      - name: Export Project for Web
         run: |
           mkdir -p export/web
           godot --headless --export-release "Web" export/web/index.html
 
-      - name: Upload to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload Web Export for Deployment
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./export/web
+          path: export/web
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
