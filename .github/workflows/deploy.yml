@@ -35,6 +35,12 @@ jobs:
         with:
           path: export/web
 
+      - name: List Directory Contents
+        run: |
+          echo "Current directory structure:"
+          ls -la
+          tree -L 2
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
