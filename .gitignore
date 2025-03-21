@@ -6,7 +6,6 @@ export/
 *.translation
 *.mono/
 *.gen.*
-*.cfg
 *.import
 
 # OS-specific files
