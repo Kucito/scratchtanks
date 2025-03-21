@@ -23,7 +23,7 @@ jobs:
         with:
           version: "4.4.0"
           use-dotnet: false
-          export_templates: true
+          include-templates: true
 
       - name: Export Project for Web
         run: |
