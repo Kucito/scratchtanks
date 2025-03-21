@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bfsqiwu3n6mln" path="res://scripts/player_gun.gd" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+size = Vector2(290, 137)
 
 [node name="Player" type="Node2D"]
 
@@ -13,9 +14,11 @@
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="Body" type="Sprite2D" parent="CharacterBody2D"]
+z_index = 1
 texture = ExtResource("2_qhqgy")
 flip_h = true
 
@@ -23,6 +26,7 @@ flip_h = true
 position_smoothing_enabled = true
 
 [node name="Top" type="Sprite2D" parent="CharacterBody2D"]
+z_index = 2
 texture = ExtResource("3_qhqgy")
 offset = Vector2(60, 0)
 flip_h = true
