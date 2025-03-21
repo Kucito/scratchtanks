@@ -22,6 +22,7 @@ jobs:
         uses: chickensoft-games/setup-godot@v2.1.1
         with:
           version: "4.4.0"
+          use-dotnet: false
           export_templates: true
 
       - name: Export Project for Web
