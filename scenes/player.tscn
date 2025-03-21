@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bks8t38kovn0y"]
 
 [ext_resource type="Script" uid="uid://bs75ga36haalo" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://bome2j013iu6m" path="res://assets/body.png" id="2_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://dodsq26ds3xhw" path="res://assets/top.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bome2j013iu6m" path="res://assets/sprites/tanks/debug/body.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dodsq26ds3xhw" path="res://assets/sprites/tanks/debug/top.png" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://bfsqiwu3n6mln" path="res://scripts/player_gun.gd" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]

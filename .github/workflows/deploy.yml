@@ -1,0 +1,37 @@
+name: Auto Export & Deploy Godot Web Game
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Godot
+        uses: abarichello/godot-export@v4
+        with:
+          godot_executable: "https://downloads.tuxfamily.org/godotengine/4.1/Godot_v4.1-stable_linux.x86_64.zip"
+          export_preset: "Web"
+          cache: true
+
+      - name: Upload Web Export
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: export/web
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2

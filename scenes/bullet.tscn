@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://vsn51p013tiu"]
 
-[ext_resource type="Texture2D" uid="uid://dpbxos50f12f6" path="res://assets/shell.png" id="1_mkf8s"]
+[ext_resource type="Texture2D" uid="uid://dpbxos50f12f6" path="res://assets/sprites/tanks/debug/shell.png" id="1_mkf8s"]
 [ext_resource type="Script" uid="uid://bqc0brx7mlxc0" path="res://scripts/bullet.gd" id="1_y25gk"]
 
 [node name="Bullet" type="Node2D"]
