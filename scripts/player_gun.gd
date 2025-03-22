@@ -8,7 +8,7 @@ var bullet_spawn_distance = 212
 func _process(delta):
 	look_at(get_global_mouse_position())
 	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_shoot:
+	if Input.is_action_pressed("shoot") and can_shoot:
 		shoot()
 		can_shoot = false
 		cooldown_timer = 0.0
