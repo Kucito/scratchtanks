@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bks8t38kovn0y"]
+[gd_scene load_steps=6 format=3 uid="uid://brw3yvii85n0q"]
 
 [ext_resource type="Script" uid="uid://bs75ga36haalo" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bome2j013iu6m" path="res://assets/sprites/tanks/debug/body.png" id="2_qhqgy"]
@@ -8,26 +8,44 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
 size = Vector2(290, 137)
 
-[node name="Player" type="Node2D"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_dqkch")
 
-[node name="Body" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Body" type="Sprite2D" parent="."]
 z_index = 1
 texture = ExtResource("2_qhqgy")
 flip_h = true
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
-[node name="Top" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Top" type="Sprite2D" parent="."]
 z_index = 2
 texture = ExtResource("3_qhqgy")
 offset = Vector2(60, 0)
 flip_h = true
 script = ExtResource("4_dqkch")
+
+[node name="HealthBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -133.0
+offset_right = 100.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 27.0
+show_percentage = false

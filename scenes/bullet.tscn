@@ -3,16 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://dpbxos50f12f6" path="res://assets/sprites/tanks/debug/shell.png" id="1_mkf8s"]
 [ext_resource type="Script" uid="uid://bqc0brx7mlxc0" path="res://scripts/bullet.gd" id="1_y25gk"]
 
-[node name="Bullet" type="Node2D"]
-z_index = 1
+[node name="Area2D" type="Area2D" groups=["damage"]]
 script = ExtResource("1_y25gk")
+DAMAGE = 3
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_mkf8s")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-24, -6, 1, -6, 23, 0, 1, 6, -24, 6)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
