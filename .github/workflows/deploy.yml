@@ -50,14 +50,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Download Artifact # Add this step to fetch the built project
-        uses: actions/download-artifact@v3
-        with:
-          name: github-pages # Ensure this matches the artifact name from the build job
-          path: ./artifact # Define where it should be extracted
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
-        with:
-          artifact_path: ./artifact # Deploy the downloaded artifact
