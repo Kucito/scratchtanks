@@ -1,46 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://rxqblwqpw20"]
+[gd_scene load_steps=5 format=3 uid="uid://rxqblwqpw20"]
 
 [ext_resource type="Texture2D" uid="uid://drc52djqlsytd" path="res://assets/sprites/background/108357.jpg" id="1_cpr0p"]
+[ext_resource type="PackedScene" uid="uid://ckg6c17jaon1n" path="res://scenes/Multiplayer.tscn" id="3_78awf"]
 [ext_resource type="PackedScene" uid="uid://dahveydyxk2u2" path="res://scenes/Note.tscn" id="3_cpr0p"]
-[ext_resource type="PackedScene" uid="uid://brw3yvii85n0q" path="res://scenes/player.tscn" id="4_78awf"]
+[ext_resource type="Script" path="res://scripts/spawn_point.gd" id="4_78awf"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Desk" type="Sprite2D" parent="."]
 texture_repeat = 2
+position = Vector2(0, -11)
 texture = ExtResource("1_cpr0p")
 region_enabled = true
 region_rect = Rect2(0, 0, 10000, 10000)
-
-[node name="Player" parent="." instance=ExtResource("4_78awf")]
 
 [node name="Note" parent="." instance=ExtResource("3_cpr0p")]
 rotation = 0.127409
 scale = Vector2(4, 4)
 
-[node name="Player2" parent="." instance=ExtResource("4_78awf")]
-position = Vector2(1074, 340)
+[node name="Multiplayer" parent="." instance=ExtResource("3_78awf")]
 
-[node name="Player3" parent="." instance=ExtResource("4_78awf")]
-position = Vector2(-431, -148)
+[node name="SpawnPoints" type="Node" parent="."]
 
-[node name="Player4" parent="." instance=ExtResource("4_78awf")]
-position = Vector2(330, -379)
+[node name="SpawnPoint1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-300, 500)
+script = ExtResource("4_78awf")
 
-[node name="Player5" parent="." instance=ExtResource("4_78awf")]
-position = Vector2(-593, -1141)
+[node name="SpawnPoint2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-400, -100)
+script = ExtResource("4_78awf")
 
-[node name="Player6" parent="." instance=ExtResource("4_78awf")]
-position = Vector2(781, -956)
+[node name="SpawnPoint3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(500, 300)
+script = ExtResource("4_78awf")
 
-[node name="Player7" parent="." instance=ExtResource("4_78awf")]
-position = Vector2(920, -1676)
-
-[node name="Player8" parent="." instance=ExtResource("4_78awf")]
-position = Vector2(-1210, -596)
-
-[node name="Player9" parent="." instance=ExtResource("4_78awf")]
-position = Vector2(-1283, 225)
-
-[node name="Player10" parent="." instance=ExtResource("4_78awf")]
-position = Vector2(1578, -568)
+[node name="SpawnPoint4" type="Node2D" parent="SpawnPoints"]
+position = Vector2(200, -200)
+script = ExtResource("4_78awf")
